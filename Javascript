@@ -1,0 +1,33 @@
+/*Let's create a quick program to translate text to "Whale Speech".*/
+
+//First we'll set up the text we wish to convert. You can use any text you desire, but as a test, we'll use the name of a game.
+const input = "Persona Five";
+
+//Set our vowels into an array.
+const vowels = ["a", "e", "i", "o", "u"];
+
+//This array will hold the items found in the following loop.
+const resultArray = [];
+
+//We'll go through our input until we hit the end. 
+for(let i = 0; i < input.length; i++)
+  {
+    //As we go through our input, we'll compare the string to track down the vowels within.
+    for(let j = 0; j < vowels.length; j++)
+      {
+        //Once we find a vowel, check to see if it is :e" or "u", and, if so, go ahead and push it.
+        if(input[i] === vowels[j])
+          {
+            if(input[i] === "e" || input[i] === "u")
+              {
+                resultArray.push(vowels[j]);
+              }
+            
+            //Add in the rest of the vowels found via push, including the "e"s and "u"s. As such, they will be doubled.
+            resultArray.push(vowels[j]);
+          }
+      }
+  }
+
+//We'll now log our result, ensuring there are no commas to separate and that it is all capitalized.
+console.log(resultArray.join("").toUpperCase());
